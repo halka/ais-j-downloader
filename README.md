@@ -5,4 +5,5 @@ download airport chars that specified airport
 then, run
 ```
 $ruby ais-j.rb RJTT
+select effective
 ```
