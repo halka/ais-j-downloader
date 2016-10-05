@@ -7,5 +7,5 @@ then, run
 $ruby ais-j.rb RJTT
 select effective
 ```
-Charts download in directry name of specified airport ICAO Code.
+Charts will download in directry name of specified airport's ICAO Code.
 or change directry name in code.
