@@ -2,7 +2,7 @@ require 'yaml'
 require 'fileutils'
 require 'mechanize'
 
-config = YAML.load_file("config.yml")
+config = YAML.load_file("config.yaml")
 airport = nil
 if ARGV.length > 0
   airport = ARGV[0].dup
