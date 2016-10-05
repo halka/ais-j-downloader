@@ -7,7 +7,7 @@ airport = nil
 if ARGV.length > 0
   airport = ARGV[0].dup
   else
-    puts 'specify airport!!!!!!'
+    puts 'Usage $ruby ais-j.rb RJTT'
     exit(1)
   end
 
@@ -41,7 +41,7 @@ charts = $agent.get(aip_url + airport_page)
 puts "AIRPORT #{airport}"
 charts.links.each do |chart|
   if chart.href =~ /.pdf/  then
-    filename = airport + '/' + chart.text.gsub(/\//, ' ').gsub(/(.*\r\n|\n|\r|\s)|^(Figure-\d{1,})|^image|(.pdf)$/, '') + '.pdf'
+		filename =  airport + '/' + chart.text.gsub(/\//, ' ').gsub(/(.*\r\n|\n|\r|\s)|^(Figure-\d{1,})|^image|(.pdf)$/, '') + '.pdf'
     print filename + ' '
     File.open(filename, 'wb') do | file |
       file.puts($agent.get_file($chart_baseurl + chart.href))
@@ -50,3 +50,5 @@ charts.links.each do |chart|
   end
 end
 puts 'finish!'
+#https://aisjapan.mlit.go.jp/html/AIP/html/20160331/eAIP/20160331/JP-AD-2-RORA-en-JP.html?#AD-2.RORA
+#https://aisjapan.mlit.go.jp/html/AIP/html/20160331/eAIP/20160331/pdf/JP-AD-2.24.1-RORA-en-JP.pdf?
